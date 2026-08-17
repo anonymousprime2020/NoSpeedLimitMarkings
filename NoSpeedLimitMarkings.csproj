@@ -1,0 +1,102 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Configurations>Debug;Release</Configurations>
+		<RootNamespace>NoSpeedLimitMarkings</RootNamespace>
+		<AssemblyName>NoSpeedLimitMarkings</AssemblyName>
+		<Version>0.1.0</Version>
+		<Description>Hides automatically generated pavement speed-limit numerals in Cities: Skylines II.</Description>
+	
+		<!--The file where mod information which is required for publishing mod on PDX mods are stored-->
+		<PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!--
+			The official toolchain historically stored these values in the Windows
+			User environment. Current game/toolchain launches may expose them only to
+			the active process, so prefer User scope and fall back to MSBuild's imported
+			process environment.
+		-->
+		<CsiiToolPath>$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))</CsiiToolPath>
+		<CsiiToolPath Condition="'$(CsiiToolPath)' == ''">$(CSII_TOOLPATH)</CsiiToolPath>
+	</PropertyGroup>
+	
+	<!--Imports must be after PropertyGroup block-->
+	<Import Project="$(CsiiToolPath)\Mod.props" />
+
+	<PropertyGroup>
+		<ManagedPath Condition="'$(ManagedPath)' == ''">$(CSII_MANAGEDPATH)</ManagedPath>
+		<UserDataPath Condition="'$(UserDataPath)' == ''">$(CSII_USERDATAPATH)</UserDataPath>
+		<LocalModsPath Condition="'$(LocalModsPath)' == ''">$(CSII_LOCALMODSPATH)</LocalModsPath>
+		<UnityModProjectPath Condition="'$(UnityModProjectPath)' == ''">$(CSII_UNITYMODPROJECTPATH)</UnityModProjectPath>
+		<ModPostProcessorPath Condition="'$(ModPostProcessorPath)' == ''">$(CSII_MODPOSTPROCESSORPATH)</ModPostProcessorPath>
+		<ModPublisherPath Condition="'$(ModPublisherPath)' == ''">$(CSII_MODPUBLISHERPATH)</ModPublisherPath>
+		<EntitiesVersion Condition="'$(EntitiesVersion)' == ''">$(CSII_ENTITIESVERSION)</EntitiesVersion>
+		<EntityPackagePath>$(UnityModProjectPath)\Library\PackageCache\com.unity.entities@$(EntitiesVersion)\Unity.Entities\SourceGenerators</EntityPackagePath>
+		<MSCORLIBPath Condition="'$(MSCORLIBPath)' == ''">$(CSII_MSCORLIBPATH)</MSCORLIBPath>
+	</PropertyGroup>
+
+	<Import Project="$(CsiiToolPath)\Mod.targets" />
+
+	<ItemGroup>
+		<Reference Include="Game">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Core">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Logging">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.IO.AssetDatabase">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.UI">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.UI.Binding">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Colossal.Localization">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.InputSystem">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Burst">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Collections">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Entities">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Unity.Mathematics">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Update="System">
+			<Private>false</Private>
+		</Reference>
+		<Reference Update="System.Core">
+			<Private>false</Private>
+		</Reference>
+		<Reference Update="System.Data">
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
+		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
+	</ItemGroup>
+
+</Project>
+

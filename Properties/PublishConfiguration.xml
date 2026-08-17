@@ -1,0 +1,56 @@
+<Publish>
+	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
+	<ModId Value="155637" />
+	<!--Name of the mod to display to players-->
+	<DisplayName Value="No Speed Limit Marking Decals" />
+	<!--Short description of the mod-->
+	<ShortDescription Value="Hides the default speed-limit decals on roads while preserving other road markings." />
+	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
+	<LongDescription>
+Do you get frustrated by the excessive number of speed-limit decals that the game adds to roads by default? I found myself constantly deleting them. They made my roads look cluttered and unrealistic, especially in dense neighborhoods and areas with alleys.
+
+I created this mod to remove them once and for all, and I wanted to share it with the community in case anyone else felt the same way.
+
+No Speed Limit Marking Decals is a visual-only code mod that hides the automatically generated speed-limit decals on road surfaces. The mod is enabled by default and can be toggled on/off from the in-game options menu.
+
+Only road speed-limit decals are targeted; this mod is purely visual.
+
+This mod does not:
+- Change road or vehicle behavior.
+- Change simulation values.
+- Remove other road decals, such as arrows, lines, crosswalks, or stop/yield decals.
+- Remove roadside speed-limit signs.
+
+No Harmony patches or additional dependencies are required. The mod does not add custom data to saved games, and disabling it returns the game to vanilla behavior.
+
+Built and runtime-tested in my own cities.
+
+Although I work in IT and have a solid technical foundation, I am not a seasoned mod developer. I used AI-assisted development tools to help expedite parts of this mod's development.
+
+GitHub link provided for transparency.
+	</LongDescription>
+	<!--Thumbnail-->
+	<Thumbnail Value="Properties/Thumbnail.png" />
+	<!--Screenshot, can be set multiple times-->
+	<Screenshot Value="Properties/BeforeAfter.png" />
+	<!--Tag, can be set multiple times-->
+	<Tag Value="Code Mod" />
+	<Tag Value="UIPropsDecals" />
+	<Tag Value="UIRoads" />
+	<Tag Value="Roads" />
+	<!--Link to the forum post where the mod can be discussed-->
+	<ForumLink Value="" />
+	<!--Public source code-->
+	<ExternalLink Type="github" Url="https://github.com/anonymousprime2020/NoSpeedLimitMarkings" />
+	<!--Version of the mod-->
+	<ModVersion Value="0.1.0" />
+	<!--Recommended version of the base game to use the mod-->
+	<GameVersion Value="1.6.*" />
+	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
+	<ChangeLog Value="Initial release. Hides automatic road speed-limit decals, preserves all other road behavior and markings, and provides an enabled-by-default options toggle." />
+	<!--<ChangeLog>
+	</ChangeLog>-->
+	<!--Supported values Public, Private, Unlisted-->
+	<AccessLevel Value="Unlisted" />
+</Publish>
+
